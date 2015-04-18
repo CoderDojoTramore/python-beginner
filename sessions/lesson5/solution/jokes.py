@@ -1,0 +1,13 @@
+print('What do you get when you cross a snowman with a vampire?')
+input()
+print('Frostbite!')
+print()
+print('What do you call an alligator in a vest?')
+input()
+print('An investigator!')
+print('')
+print("Why did the cow cross the road?")
+input()
+print('To get to the \'udder\' side!')
+input()
+
