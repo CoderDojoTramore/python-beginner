@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+  <style type="text/css">
+   body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;background-color:#fff;padding:10px 15px}strong{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;background:0 0;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#aaa}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}code{padding:0 5px;background-color:#d3d3d3}blockquote{padding: 0 15px;border-left:4px solid #ccc}
+  </style>
+ </head>
+ <body id="MathPreviewF">
+  <p>
+   <img alt="enter image description here" src="http://cdn.evbuc.com/images/4313815/85781426917/1/logo.jpg" title="=50x50"/>
+  </p>
+  <h1>
+   Beginning Python: Lesson 7
+  </h1>
+  <h3>
+   <em>
+    Turtle Racing
+   </em>
+  </h3>
+  <p>
+   In this lesson we'll improve the Turtle racing game. We will ask the player to enter the number of turtles in the race, draw a start and finish line, and get the winner to say "I WIN!".
+  </p>
+  <p>
+   Enter or update your turtle racing program with  the following code:
+  </p>
+  <pre><code class="python">import turtle              
+import random
+
+numberTurtles = input("enter number of turtles in race..")
+
+wn = turtle.Screen()
+wn.bgcolor('lightblue')
+
+line_drawer = turtle.Turtle()
+line_drawer.up()
+
+line_drawer.goto(-300,200)
+line_drawer.right(90)
+line_drawer.down()
+line_drawer.forward(450)
+
+line_drawer.up()
+line_drawer.goto(250,200)
+line_drawer.down()
+line_drawer.forward(450)
+
+yCoordStart = 150
+turtles=[]
+
+for x in range(int(numberTurtles)):
+    nextTurtle = turtle.Turtle()    
+    nextTurtle.color(random.random(), random.random(), random.random())
+    nextTurtle.shape('turtle')
+    turtles.append(nextTurtle)
+    nextTurtle.up()
+    nextTurtle.goto(-300,yCoordStart)
+    yCoordStart=yCoordStart-20
+
+winner=False
+while winner==False:
+    movingTurtle = random.choice(turtles)
+    movingTurtle.forward(random.randrange(1,10))
+    if movingTurtle.xcor()&gt;250:
+        winner=True
+        movingTurtle.write("I Win!!!", font=('Arial', 20, 'normal'))
+
+wn.exitonclick()
+</code></pre>
+  <p>
+   Now run the code and see what happens. You should all your turtles race across the screen.
+  </p>
+ </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+  <style type="text/css">
+   body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;background-color:#fff;padding:10px 15px}strong{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;background:0 0;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#aaa}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}code{padding:0 5px;background-color:#d3d3d3}blockquote{padding: 0 15px;border-left:4px solid #ccc}
+  </style>
+ </head>
+ <body id="MathPreviewF">
+  <p>
+   <img alt="enter image description here" src="http://cdn.evbuc.com/images/4313815/85781426917/1/logo.jpg" title="=50x50"/>
+  </p>
+  <h1>
+   Beginning Python: Lesson 8
+  </h1>
+  <h3>
+   <em>
+    Functions
+   </em>
+  </h3>
+  <p>
+   In this lesson we'll continue using Python Turtle to investigate functions. Often in code we want to do the same thing more than once. You may remeber in our first Turtle lesson we got the turtles to draw shapes by individually coding a
+   <code>
+    forward
+   </code>
+   and
+   <code>
+    right
+   </code>
+   move for a turtle. Wouldn't it be nice if we could just tell a turtle to draw a square, or a circle, or any other shape. This is where we can use a
+   <strong>
+    function
+   </strong>
+   . A function is a block of reuseable code that performs some action, for example drawing a circle.
+  </p>
+  <p>
+   Create a new file called
+   <strong>
+    funtions.py
+   </strong>
+   in your Python folder. Add the following code.
+  </p>
+  <pre><code class="python">def drawSquare(t, sz):
+
+    for i in range(4):
+        t.forward(sz)
+        t.left(90)
+</code></pre>
+  <p>
+   Now run the code and  what happens? Nothing happens! We need to create a turtle and call the function.
+  </p>
+  <h3>
+   <em>
+    Calling a function
+   </em>
+  </h3>
+  <p>
+   You need to call a function in order to use it. In this case, when we call the function we need to tell it the following:
+   <br/>
+   - the turtle that will draw the square
+   <br/>
+   - the size of the square.
+   <br/>
+   These are called the
+   <strong>
+    parameters
+   </strong>
+   of the function. Put the following code into your program:
+  </p>
+  <pre><code class="python">import turtle
+
+wn = turtle.Screen()      
+wn.bgcolor('lightblue')
+speedy = turtle.Turtle()
+
+speedy.up()
+speedy.setposition(100,100)
+speedy.down()
+drawSquare(speedy, 100)
+
+speedy.up()
+speedy.setposition(-100,100)
+speedy.down()
+speedy.begin_fill()
+speedy.color("red")
+drawSquare(speedy, 150)
+speedy.end_fill()
+
+wn.exitonclick()
+</code></pre>
+  <p>
+   Run the program. You'll see the turtle move to a new position (100,100), draw a square, and then move to position (-100, 100) and draw another , bigger, square.
+  </p>
+  <h3>
+   More Shapes
+  </h3>
+  <p>
+   Now lets write more functions which can draw other shapes. Enter the following code
+   <strong>
+    just underneath the square  function
+   </strong>
+  </p>
+  <pre><code class="python">def drawTriangle(t, sz):
+
+    for i in range(3):
+        t.forward(sz)
+        t.left(120)
+
+def drawOctagon(t, sz):
+
+    for i in range(8):
+        t.forward(sz)
+        t.left(45)
+</code></pre>
+  <p>
+   Now add the following code to draw a triangle at location (-100,100).
+  </p>
+  <pre><code class="python">speedy.up()
+speedy.setposition(-100,100)
+speedy.down()
+drawTriangle(speedy, 100)
+</code></pre>
+  <h2>
+   <em>
+    Challenges
+   </em>
+  </h2>
+  <ul>
+   <li>
+    Draw an octagon using the drawOctagon function.
+   </li>
+   <li>
+    Draw a yellow five point star
+   </li>
+   <li>
+    <strong>
+     Super Challenge
+    </strong>
+    : Draw a circle.
+   </li>
+  </ul>
+ </body>
+</html>

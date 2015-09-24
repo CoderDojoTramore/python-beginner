@@ -1,8 +1,20 @@
+![enter image description here](http://cdn.evbuc.com/images/4313815/85781426917/1/logo.jpg =50x50)
+
+Beginning Python: Lesson 7
+=================
+
+
+
+###*Turtle Racing*
+In this lesson we'll improve the Turtle racing game. We will ask the player to enter the number of turtles in the race, draw a start and finish line, and get the winner to say "I WIN!". 
+
+Enter or update your turtle racing program with  the following code:
+
+```python
 import turtle              
 import random
 
 numberTurtles = input("enter number of turtles in race..")
-
 
 wn = turtle.Screen()
 wn.bgcolor('lightblue')
@@ -41,3 +53,5 @@ while winner==False:
         movingTurtle.write("I Win!!!", font=('Arial', 20, 'normal'))
     
 wn.exitonclick()
+```
+Now run the code and see what happens. You should all your turtles race across the screen.

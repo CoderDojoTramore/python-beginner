@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Made with Remarkable!
+  </title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/github.min.css" rel="stylesheet"/>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js">
+  </script>
+  <script>
+   hljs.initHighlightingOnLoad();
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   MathJax.Hub.Config({"showProcessingMessages" : false,"messageStyle" : "none","tex2jax": { inlineMath: [ [ "$", "$" ] ] }});
+  </script>
+  <style type="text/css">
+   body{font:16px Helvetica,Arial,sans-serif;line-height:1.4;color:#333;word-wrap:break-word;background-color:#fff;padding:10px 15px}strong{font-weight:700}h1{font-size:2em;margin:.67em 0;text-align:center}h2{font-size:1.75em}h3{font-size:1.5em}h4{font-size:1.25em}h1,h2,h3,h4,h5,h6{font-weight:700;position:relative;margin-top:15px;margin-bottom:15px;line-height:1.1}h1,h2{border-bottom:1px solid #eee}hr{height:0;margin:15px 0;overflow:hidden;background:0 0;border:0;border-bottom:1px solid #ddd}a{color:#4183C4}a.absent{color:#c00}ol,ul{padding-left:15px;margin-left:5px}ol{list-style-type:lower-roman}table{padding:0}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#aaa}table tr th{font-weight:700;border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:last-child,table tr th :last-child{margin-bottom:0}img{max-width:100%}code{padding:0 5px;background-color:#d3d3d3}blockquote{padding: 0 15px;border-left:4px solid #ccc}
+  </style>
+ </head>
+ <body id="MathPreviewF">
+  <h1>
+   Beginning Python: Lesson 10
+  </h1>
+  <h3>
+   <em>
+    Event Handling
+   </em>
+  </h3>
+  <p>
+   In this lesson we'll continue to use turtle and create a program that allows you to control the turtle on the screen with the arrow keys. To do this, you will learn how write a Python program that can respond to events. An event is something that can happen while your program is running. For example, a key being pressed. When an arrow key is pressed, this program  executes a function which moves a turtle in the direction of the arrow.
+  </p>
+  <p>
+   Create a new file called
+   <strong>
+    event_turtle.py
+   </strong>
+   in your Python folder. Add the following code.
+  </p>
+  <pre><code class="python">import turtle
+
+wn = turtle.Screen()
+wn.bgcolor('lightblue')
+wn.title("Event Turtle")
+
+speedy = turtle.Turtle()
+speedy.shape('turtle')
+speedy.penup()
+
+def up():
+    speedy.setheading(90)
+    speedy.forward(45)
+
+def left():
+    speedy.setheading(180)
+    speedy.forward(45)
+
+def right():
+    speedy.setheading(0)
+    speedy.forward(45)
+
+def down():
+    speedy.setheading(270)
+    speedy.forward(45)
+
+turtle.onkey(up, "Up")
+turtle.onkey(left, "Left")
+turtle.onkey(right, "Right")
+turtle.onkey(down, "Down")
+
+turtle.listen()
+turtle.mainloop()
+</code></pre>
+  <p>
+   Now run the code. You should be able to move the turtle around the screen using the arrow keys.
+   <br/>
+   Now lets add some new events
+  </p>
+  <h3>
+   Drawing Lines
+  </h3>
+  <p>
+   Put the following togglePen() function
+   <strong>
+    just underneath the
+    <code>
+     down()
+    </code>
+    function
+   </strong>
+   .
+  </p>
+  <pre><code class="python">def togglePen():
+    if (speedy.isdown()):
+        speedy.penup()
+    else:
+        speedy.pendown()
+</code></pre>
+  <p>
+   Now add the following line of code
+   <strong>
+    just after
+    <code>
+     turtle.onkey(down, "Down")
+    </code>
+   </strong>
+  </p>
+  <pre><code class="python">turtle.onkey(togglePen, "p")
+</code></pre>
+  <p>
+   Now run your program again. This time press the p button and see what happens when you move the turtle. The p button should switch the turtle's pen on and off.
+  </p>
+  <h3>
+   Changing Colours
+  </h3>
+  <p>
+   Now add the following code just after the
+   <code>
+    togglePen()
+   </code>
+   function
+  </p>
+  <pre><code class="python">ef changeColour():
+    speedy.color(random.choice(["red","green","blue"]))
+</code></pre>
+  <p>
+   This function changes the turtle's colour randomly to red, green, or blue. To make this happen when you press the "c" key. enter the following code  after the last
+   <code>
+    turtle.onkey(...)
+   </code>
+   line of code:
+  </p>
+  <pre><code class="python">turtle.onkey(changeColour, "c")
+</code></pre>
+  <p>
+   Now run your code and see if it works. Everytime you press the "c" key the turtle's colour should change.
+  </p>
+  <h2>
+   <em>
+    Challenges
+   </em>
+  </h2>
+  <ul>
+   <li>
+    add an event that changes the width of the line
+   </li>
+   <li>
+    change the program so that the turtle moves forward all the time  and you steer it with the arrow keys.
+   </li>
+  </ul>
+ </body>
+</html>

@@ -15,9 +15,9 @@ shelly.up()
 speedy.goto(-300,20)
 shelly.goto(-300,-20)
 
-for x in range(50):
-    speedySteps = random.randrange(1,20)
-    shellySteps = random.randrange(1,20)
+for x in range(100):
+    speedySteps = random.randrange(1,10)
+    shellySteps = random.randrange(1,10)
     speedy.forward(speedySteps)
     shelly.forward(shellySteps)
     
